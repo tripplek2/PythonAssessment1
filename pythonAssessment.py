@@ -26,7 +26,7 @@ def identify_most_common_word(text):
         else:
             word_count[word] = 1
     
-    most_common = max(word_count, key=word.count.get)
+    most_common = max(word_count, key=word_count.get)
 
     return most_common
 
@@ -50,6 +50,21 @@ def calculate_average_word_length(text):
 
     return average
 
+# Count paragraphs
+def count_paragraphs(text):
+    if text.strip() == "":
+        return 1
+    
+    paragraphs = text.split("\n\n")
+
+    count = 0
+
+    for paragraph in paragraphs:
+        if paragraph.strip() != "":
+            count += 1
+    
+    return count
+
 # Count sentences
 def count_sentences(text):
 
@@ -63,7 +78,34 @@ def count_sentences(text):
     for sentence in sentences:
         if sentence.strip() != "":
             count += 1
-            return count
+    
+    return count
 
 # Main
+def main():
+
+    article = read_article("news_article.txt")
+
+    print("News article analyzer")
+
+    search_word = "" 
+
+    while search_word.strip() == "":
+        search_word = input("Enter a word to search for: ")
+
+    word_count = count_specific_word(article, search_word)
+    common_word = identify_most_common_word(article)
+    average_length = calculate_average_word_length(article)
+    paragraph_count = count_paragraphs(article)
+    sentence_count = count_sentences(article)
+
+    print("\n---Results---")
+    print(f"Occurences of '{search_word}':{word_count}")
+    print(f"Most common word: {common_word}")
+    print(f"Average word length: {average_length:.2f}")
+    print(f"Number of paragraphs: {paragraph_count}")
+    print(f"Number of sentences: {sentence_count}")
+   
+main()
+
 
