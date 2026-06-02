@@ -1,6 +1,6 @@
 import re
 
-# Read the newx article from the txt file.
+# Read the news article from the txt file.
 def read_article(filename):
     with open(filename, "r", encoding="utf-8") as file:
         return file.read()
@@ -81,7 +81,7 @@ def count_sentences(text):
     
     return count
 
-# Main
+# Main function
 def main():
 
     article = read_article("news_article.txt")
@@ -89,6 +89,7 @@ def main():
     print("News article analyzer")
 
     search_word = "" 
+    
     # While loop
     while search_word.strip() == "":
         search_word = input("Enter a word to search for: ")
