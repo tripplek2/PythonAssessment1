@@ -49,3 +49,21 @@ def calculate_average_word_length(text):
     average = total_letters / len(words)
 
     return average
+
+# Count sentences
+def count_sentences(text):
+
+    if text.strip() == "":
+        return 1
+    
+    sentences = re.split(r"[.!?]+", text)
+
+    count = 0
+
+    for sentence in sentences:
+        if sentence.strip() != "":
+            count += 1
+            return count
+
+# Main
+
