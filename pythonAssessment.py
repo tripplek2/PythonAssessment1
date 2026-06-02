@@ -89,7 +89,7 @@ def main():
     print("News article analyzer")
 
     search_word = "" 
-
+    # While loop
     while search_word.strip() == "":
         search_word = input("Enter a word to search for: ")
 
@@ -106,6 +106,7 @@ def main():
     print(f"Number of paragraphs: {paragraph_count}")
     print(f"Number of sentences: {sentence_count}")
    
-main()
+if __name__ == "__main__" :
+    main()
 
 
